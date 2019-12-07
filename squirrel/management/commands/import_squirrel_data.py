@@ -11,7 +11,7 @@ class Command(BaseCommand):
         file = pd.read_csv(options['file'][0])
         for index, line in file.iterrows():
 	    Squirrel.objects.create(
-			Longitude = row['Y'],
+                    Longitude = row['Y'],
                  	Latitude = row['X'],
                         Unique_Squirrel_Id = row['Unique Squirrel ID'],
                         Shift = row['Shift'],
@@ -34,5 +34,5 @@ class Command(BaseCommand):
                         Approaches = row['Approaches'],
                         Indifferent = row['Indifferent'],
                         Runs_from = row['Runs from'],
-                    )
+            )
 
