@@ -11,7 +11,7 @@ def map(request):
     return render(request, 'squirrel/map.html', context)
 
 def all_squirrels(request):
-    squirrel_list = Squirrel.objects.all()[:5]
+    squirrel_list = Squirrel.objects.all()[::-1][:5]
     context = {'squirrel_list': squirrel_list}
     return render(request, 'squirrel/index.html', context)
 
@@ -55,4 +55,58 @@ def squirrel_details(request, squirrel_id):
         return render(request, 'squirrel/detail.html',{'squirrel':squirrel})
     except Squirrel.DoesNotExist:
         raise Http404("Squirrel does not exist")
+
+def add_squirrels(request):
+    if request.method == 'POST':
+        latitude = request.POST.get('Latitude')
+        longitude = request.POST.get('Longitude')
+        unique_squirrel_id = request.POST.get('Unique_Squirrel_ID')
+        if unique_squirrel_id in [i.Unique_Squirrel_ID for i in Squirrel.objects.all()]:
+            raise Http404("UNIQUE ID CONSTRAINT failed!")
+        shift = request.POST.get('Shift')
+        date = request.POST.get('Date')
+        age = request.POST.get('Age')
+        primary_fur_color = request.POST.get('Primary_Fur_Color')
+        location = request.POST.get('Location')
+        specific_location = request.POST.get('Specific_Location')
+        running = request.POST.get('Running')
+        chasing = request.POST.get('Chasing')
+        climbing = request.POST.get('Climbing')
+        eating = request.POST.get('Eating')
+        foraging = request.POST.get('Foraging')
+        other_activities = request.POST.get('Other_Activities')
+        kuks = request.POST.get('Kuks')
+        quaas = request.POST.get('Quaas')
+        moans = request.POST.get('Moans')
+        tail_flags = request.POST.get('Tail_flags')
+        tail_twitches = request.POST.get('Tail_twitches')
+        approaches = request.POST.get('Approaches')
+        indifferent = request.POST.get('Indifferent')
+        runs_from = request.POST.get('Runs_from')
+        Squirrel.objects.create(
+            Latitude = latitude,
+            Longitude = longitude,
+            Unique_Squirrel_ID = unique_squirrel_id,
+            Shift = shift,
+            Date = date,
+            Age = age,
+            Primary_Fur_Color = primary_fur_color,
+            Location = location,
+            Specific_Location = specific_location,
+            Running = running,
+            Chasing = chasing,
+            Climbing = climbing,
+            Eating = eating,
+            Foraging = foraging,
+            Other_Activities = other_activities,
+            Kuks = kuks,
+            Quaas = quaas,
+            Moans = moans,
+            Tail_flags = tail_flags,
+            Tail_twitches = tail_twitches,
+            Approaches = approaches,
+            Indifferent = indifferent,
+            Runs_from = runs_from
+        )
+    return render(request, 'squirrel/add.html')
 
