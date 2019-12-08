@@ -20,29 +20,18 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-<<<<<<< HEAD
-SECRET_KEY = '+uv+wyq&(e^yk$gu1m(##03lwjh_d8%mdonekx72maj60^@fwq'
-=======
 SECRET_KEY = '*u01x072ierh^lnwmrcw5v_j*@5!3f&)vx)ydy(1!^8uhxy-nx'
->>>>>>> 5bd85696caab67cd763f316a81c3920a698503c2
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-<<<<<<< HEAD
-ALLOWED_HOSTS = []
-=======
 ALLOWED_HOSTS = ['*']
->>>>>>> 5bd85696caab67cd763f316a81c3920a698503c2
 
 
 # Application definition
 
 INSTALLED_APPS = [
-<<<<<<< HEAD
-=======
     'squirrel',
->>>>>>> 5bd85696caab67cd763f316a81c3920a698503c2
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -130,7 +119,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-<<<<<<< HEAD
-=======
 STATIC_ROOT = 'collected-static'
->>>>>>> 5bd85696caab67cd763f316a81c3920a698503c2
