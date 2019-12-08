@@ -23,6 +23,7 @@ def squirrel_details(request, squirrel_id):
         update = request.POST.get('Update')
         if delete == 'delete':
             squirrel.delete()
+            return redirect('')
         if update == 'update':
             squirrel.Latitude = request.POST.get('Latitude')
             squirrel.Longitude = request.POST.get('Longitude')
@@ -53,6 +54,7 @@ def squirrel_details(request, squirrel_id):
             squirrel.Indifferent = request.POST.get('Indifferent')
             squirrel.Runs_from = request.POST.get('Runs_from')
             squirrel.save()
+            return redirect('')
         return render(request, 'squirrel/detail.html',{'squirrel':squirrel})
     except Squirrel.DoesNotExist:
         raise Http404("Squirrel does not exist")
@@ -67,17 +69,17 @@ def squirrel_stats(request):
             age[i.Age] = age.get(i.Age,0) + 1
         if i.Primary_Fur_Color!='':
             fur_color[i.Primary_Fur_Color] = fur_color.get(i.Primary_Fur_Color,0) + 1
-        if i.Running == 'true':
+        if i.Running == 'True':
             running_rate_list.append(True)
-        elif i.Running == 'false':
+        elif i.Running == 'False':
             running_rate_list.append(False)
 
-    mean_latitude = np.mean([float(i.Latitude) for i in squirrel_list if i.Latitude])
-    max_latitude = np.max([float(i.Latitude) for i in squirrel_list if i.Latitude])
-    min_latitude = np.min([float(i.Latitude) for i in squirrel_list if i.Latitude])
-    mean_longitude = np.mean([float(i.Longitude) for i in squirrel_list if i.Longitude])
-    max_longitude = np.max([float(i.Longitude) for i in squirrel_list if i.Longitude])
-    min_longitude = np.min([float(i.Longitude) for i in squirrel_list if i.Longitude])
+    mean_latitude = np.mean([i.Latitude for i in squirrel_list if i.Latitude])
+    max_latitude = np.max([i.Latitude for i in squirrel_list if i.Latitude])
+    min_latitude = np.min([i.Latitude for i in squirrel_list if i.Latitude])
+    mean_longitude = np.mean([i.Longitude for i in squirrel_list if i.Longitude])
+    max_longitude = np.max([i.Longitude for i in squirrel_list if i.Longitude])
+    min_longitude = np.min([i.Longitude for i in squirrel_list if i.Longitude])
     running_rate = np.mean(running_rate_list)
     age_mode = max(age,key=age.get)
     age_count = age[age_mode]
