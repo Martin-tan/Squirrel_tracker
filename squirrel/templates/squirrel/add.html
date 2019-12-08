@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Squirrels</title>
+</head>
+<body>
+    <h2>Add Squirrels:</h2>
+    <form method="post">
+        {% csrf_token %}
+        Unique Squirrel ID: <input type="text" name="Unique_Squirrel_ID" /><br />
+        Latitude: <input type="text" name="Latitude" /><br />
+        Longitude: <input type="text" name="Longitude" /><br />
+        Shift: <input type="text" name="Shift" /><br />
+        Longitude: <input type="text" name="Longitude" /><br />
+        Date: <input type="text" name="Date" /><br />
+        Age: <input type="text" name="Age" /><br />
+        Primary Fur Color: <input type="text" name="Primary_Fur_Color" /><br />
+        Location: <input type="text" name="Location" /><br />
+        Specific Location: <input type="text" name="Specific_Location" /><br />
+        Running: <input type="text" name="Running" /><br />
+        Chasing: <input type="text" name="Chasing" /><br />
+        Climbing: <input type="text" name="Climbing" /><br />
+        Eating: <input type="text" name="Eating" /><br />
+        Foraging: <input type="text" name="Foraging" /><br />
+        Other Activities: <input type="text" name="Other_Activities" /><br />
+        Kuks: <input type="text" name="Kuks" /><br />
+        Quaas: <input type="text" name="Quaas" /><br />
+        Moans: <input type="text" name="Moans" /><br />
+        Tail flags: <input type="text" name="Tail_flags" /><br />
+        Tail twitches: <input type="text" name="Tail_twitches" /><br />
+        Approaches: <input type="text" name="Approaches" /><br />
+        Indifferent: <input type="text" name="Indifferent" /><br />
+        Runs from: <input type="text" name="Runs_from" /><br />
+        <input type="submit" value="submit" action="/sightings/"/>
+    </form>
+</body>
+</html>

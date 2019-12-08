@@ -1,0 +1,33 @@
+<form method="post">
+        {% csrf_token %}
+        <!--Delete-->
+        <h2>Delete squirrel<{{ squirrel }}>?</h2>
+        <input type="submit" name='Delete' value="delete" /><br />
+
+        <!--Update-->
+        Unique Squirrel ID: <input type="text" name="Unique_Squirrel_ID" value="{{ squirrel.Unique_Squirrel_ID }}" /><br />
+        Latitude: <input type="text" name="Latitude" value="{{ squirrel.Latitude }}" /><br />
+        Longitude: <input type="text" name="Longitude" value="{{ squirrel.Longitude }}" /><br />
+        Shift: <input type="text" name="Shift" value="{{ squirrel.Shift }}" /><br />
+        Date: <input type="text" name="Date" value="{{ squirrel.Date }}" /><br />
+        Age: <input type="text" name="Age" value="{{ squirrel.Age }}" /><br />
+        Primary Fur Color: <input type="text" name="Primary_Fur_Color" value="{{ squirrel.Primary_Fur_Color }}" /><br />
+        Location: <input type="text" name="Location" value="{{ squirrel.Location }}" /><br />
+	Specific Location: <input type="text" name="Specific_Location" value="{{ squirrel.Specific_Location }}" /><br />
+	Running: <input type="text" name="Running" value="{{ squirrel.Running }}" /><br />
+        Chasing: <input type="text" name="Chasing" value="{{ squirrel.Chasing }}" /><br />
+        Climbing: <input type="text" name="Climbing" value="{{ squirrel.Climbing }}" /><br />
+        Eating: <input type="text" name="Eating" value="{{ squirrel.Eating }}" /><br />
+        Foraging: <input type="text" name="Foraging" value="{{ squirrel.Foraging }}" /><br />
+        Other Activities: <input type="text" name="Other_Activities" value="{{ squirrel.Other_Activities }}" /><br />
+        Kuks: <input type="text" name="Kuks" value="{{ squirrel.Kuks }}" /><br />
+        Quaas: <input type="text" name="Quaas" value="{{ squirrel.Quaas }}" /><br />
+        Moans: <input type="text" name="Moans" value="{{ squirrel.Moans }}" /><br />
+        Tail flags: <input type="text" name="Tail_flags" value="{{ squirrel.Tail_flags }}" /><br />
+        Tail twitches: <input type="text" name="Tail_twitches" value="{{ squirrel.Tail_twitches }}" /><br />
+        Approaches: <input type="text" name="Approaches" value="{{ squirrel.Approaches }}" /><br />
+        Indifferent: <input type="text" name="Indifferent" value="{{ squirrel.Indifferent }}" /><br />
+        Runs from: <input type="text" name="Runs_from" value="{{ squirrel.Runs_from }}" /><br />
+        <p> Update squirrel<{{ squirrel }}>?</p>
+        <input type="submit" name="Update" value="update" />
+</form>

@@ -1,0 +1,54 @@
+<html>
+<h1>Stats<h1/>
+        <table border="1" cellspacing="0">
+                <tr>
+                        <td></td>
+                        <td>Average</td>
+                        <td>Max</td>
+                        <td>Min</td>
+                </tr>
+                <tr>
+                        <td>Longitude</td>
+                        <td>{{ Mean_Longitude }}</td>
+                        <td>{{ Max_Longitude }}</td>
+                        <td>{{ Min_Longitude }}</td>
+                </tr>
+                <tr>
+                        <td>Latitude</td>
+                        <td>{{ Mean_Latitude }}</td>
+                        <td>{{ Max_Latitude }}</td>
+                        <td>{{ Min_Latitude }}</td>
+                </tr>
+        </table>
+        <br/>
+        <table border="1" cellspacing="0">
+                <tr>
+                        <td>Running Rate</td>
+                </tr>
+                <tr>
+                        <td>{{ Running_Rate }}</td>
+                </tr>
+        </table>
+        <br/>
+	   <table border="1" cellspacing="0">
+                <tr>
+                        <td>Age Mode</td>
+                        <td>Count</td>
+                </tr>
+                <tr>
+                        <td>{{ age_mode }}</td>
+                        <td>{{ age_count }}</td>
+                </tr>
+        </table>
+        <br/>
+        <table border="1" cellspacing="0">
+                <tr>
+                        <td>Primary Fur Color Mode</td>
+                        <td>Count</td>
+                </tr>
+                <tr>
+                        <td>{{ color_mode }}</td>
+                        <td>{{ color_count }}</td>
+                </tr>
+        </table>
+</html>
