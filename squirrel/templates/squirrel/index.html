@@ -1,4 +1,9 @@
 {% if squirrel_list %}
+<h2>Add Sightings:</h2> 
+    <a href="/sightings/add/"><input type="submit" value="Add" /></a>
+<h2>Map:</h2>
+    <a href="/sightings/map/"><input type="submit" value="Map" /></a>
+<h2>Squirrel Sightings:</h2>
     <table border="1" cellspacing="0">
         <thead>
             <tr>
@@ -19,14 +24,14 @@
             <tr>
                 <td colspan=2 >{{ squirrels.Latitude }}</td>
                 <td colspan=2 >{{ squirrels.Longitude }}</td>
-                <td colspan=2 >
-			<a href="/sightings/{{ squirrels.Unique_Squirrel_ID }}/">{{ squirrels.Unique_Squirrel_ID }}(Edit)</a></td>
+		<td colspan=2 >{{ squirrels.Unique_Squirrel_ID }}</td>
                 <td colspan=2 >{{ squirrels.Shift }}</td>
                 <td colspan=2 >{{ squirrels.Date }}</td>
                 <td colspan=2 >{{ squirrels.Age }}</td>
                 <td colspan=2 >{{ squirrels.Primary_Fur_Color }}</td>
                 <td colspan=2 >{{ squirrels.Location }}</td>
                 <td colspan=2 >{{ squirrels.Specific_Location }}</td>
+		<td colspan=2 ><a href="/sightings/{{ squirrels.Unique_Squirrel_ID }}/"><input type="submit" value="Update" /></a></td>
             </tr>
         {% endfor %}
         </tbody>
