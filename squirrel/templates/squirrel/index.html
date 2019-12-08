@@ -15,18 +15,18 @@
         </thead>
         <tbody >
         
-        {% for sightings in squirrel_list %}
+        {% for squirrels in squirrel_list %}
             <tr>
-                <td colspan=2 >{{ sightings.Latitude }}</td>
-                <td colspan=2 >{{ sightings.Longitude }}</td>
+                <td colspan=2 >{{ squirrels.Latitude }}</td>
+                <td colspan=2 >{{ squirrels.Longitude }}</td>
                 <td colspan=2 >
-			<a href="/sightings/{{ sightings.Unique_Squirrel_ID }}/">{{ sightings.Unique_Squirrel_ID }}(Edit)</a></td>
-                <td colspan=2 >{{ sightings.Shift }}</td>
-                <td colspan=2 >{{ sightings.Date }}</td>
-                <td colspan=2 >{{ sightings.Age }}</td>
-                <td colspan=2 >{{ sightings.Primary_Fur_Color }}</td>
-                <td colspan=2 >{{ sightings.Location }}</td>
-                <td colspan=2 >{{ sightings.Specific_Location }}</td>
+			<a href="/sightings/{{ squirrels.Unique_Squirrel_ID }}/">{{ squirrels.Unique_Squirrel_ID }}(Edit)</a></td>
+                <td colspan=2 >{{ squirrels.Shift }}</td>
+                <td colspan=2 >{{ squirrels.Date }}</td>
+                <td colspan=2 >{{ squirrels.Age }}</td>
+                <td colspan=2 >{{ squirrels.Primary_Fur_Color }}</td>
+                <td colspan=2 >{{ squirrels.Location }}</td>
+                <td colspan=2 >{{ squirrels.Specific_Location }}</td>
             </tr>
         {% endfor %}
         </tbody>
