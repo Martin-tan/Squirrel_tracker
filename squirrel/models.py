@@ -21,8 +21,16 @@ class Squirrel(models.Model):
         max_length = 100,
         default = ''
     ) 
+    PM = 'PM'
+    AM = 'AM'
+    shift_choices = (
+            (PM,'PM'),
+            (AM,'AM'),
+            )
+
     Shift = models.CharField( 
         help_text = _('Shift'),
+        choices = shift_choices,
         max_length = 100,
         default = ''
     ) 
@@ -31,8 +39,15 @@ class Squirrel(models.Model):
         max_length = 100,
         default = ''
     ) 
+    adult = 'Adult'
+    juvenile = 'Juvenile'
+    age_choices = (
+            (adult, 'Adult'),
+            (juvenile, 'Juvenile'),
+            )
     Age = models.CharField( 
-        help_text = _('Age'), 
+        help_text = _('Age'),
+        choices = age_choices,
         max_length = 100, 
         default = ''
     ) 
@@ -41,8 +56,15 @@ class Squirrel(models.Model):
         max_length = 100, 
         default = ''
     ) 
+    above_ground = 'Above Ground'
+    ground_plane = 'Ground Plane'
+    location_choices = (
+            (above_ground, 'Above Ground'),
+            (ground_plane, 'Ground Plane'),
+            )
     Location = models.CharField(
         help_text = _('Location'),
+        choices = location_choices,
         max_length = 100, 
         default = ''
     ) 
@@ -51,73 +73,61 @@ class Squirrel(models.Model):
         max_length = 100, 
         default = ''
     )
-    Running = models.CharField(
+    Running = models.BooleanField(
         help_text = _('Running'),
-        max_length = 100,
         default = ''
     )
-    Chasing = models.CharField(
+    Chasing = models.BooleanField (
         help_text = _('Chasing'),
-        max_length = 100,
         default = ''
     )
-    Climbing = models.CharField(
+    Climbing = models.BooleanField (
         help_text = _('Climbing'),
-        max_length = 100,
         default = ''
    )
-    Eating = models.CharField(
+    Eating = models.BooleanField (
         help_text = _('Eating'),
-        max_length = 100,
         default = ''
     )
-    Foraging = models.CharField(
+    Foraging = models.BooleanField (
         help_text = _('Foraging'),
-        max_length = 100,
         default = ''
     )
-    Other_Activities = models.CharField(
+    Other_Activities = models.CharField (
         help_text = _('Other_Activities'),
         max_length = 100,
         default = ''
     )
-    Kuks = models.CharField(
+    Kuks = models.BooleanField (
         help_text = _('Kuks'),
-        max_length = 100,
         default = ''
     )
-    Quaas = models.CharField(
+    Quaas = models.BooleanField (
         help_text = _('Quaas'),
-        max_length = 100,
         default = ''
     )
-    Moans = models.CharField(
+    Moans = models.BooleanField (
         help_text = _('Moans'),
-        max_length = 100,
         default = ''
     )
-    Tail_flags = models.CharField(
+    Tail_flags = models.BooleanField (
         help_text = _('Tail_flags'),
-        max_length = 100,
         default = ''
     )
-    Tail_twitches = models.CharField(
+    Tail_twitches = models.BooleanField (
         help_text = _('Tail_twitches'),
-        max_length = 100,
         default = ''
     )
-    Approaches = models.CharField(
+    Approaches = models.BooleanField (
         help_text = _('Approaches'),
-        max_length = 100,
         default = ''
     )
-    Indifferent = models.CharField(
+    Indifferent = models.BooleanField (
         help_text = _('Indifferent'),
-        max_length = 100,
         default = ''
     )
-    Runs_from = models.CharField(
+    Runs_from = models.BooleanField (
         help_text = _('Runs_from'),
-        max_length = 100,
         default = ''
     )
+

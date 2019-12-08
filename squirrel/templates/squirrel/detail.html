@@ -3,7 +3,7 @@
         <!--Delete-->
         <h2>Delete squirrel<{{ squirrel }}>?</h2>
         <input type="submit" name='Delete' value="delete" /><br />
-
+	<h2>Update squirrel<{{ squirrel }}>?</h2>
         <!--Update-->
         Unique Squirrel ID: <input type="text" name="Unique_Squirrel_ID" value="{{ squirrel.Unique_Squirrel_ID }}" /><br />
         Latitude: <input type="text" name="Latitude" value="{{ squirrel.Latitude }}" /><br />
@@ -28,6 +28,5 @@
         Approaches: <input type="text" name="Approaches" value="{{ squirrel.Approaches }}" /><br />
         Indifferent: <input type="text" name="Indifferent" value="{{ squirrel.Indifferent }}" /><br />
         Runs from: <input type="text" name="Runs_from" value="{{ squirrel.Runs_from }}" /><br />
-        <p> Update squirrel<{{ squirrel }}>?</p>
         <input type="submit" name="Update" value="update" />
 </form>
