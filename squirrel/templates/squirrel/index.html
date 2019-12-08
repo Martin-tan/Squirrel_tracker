@@ -1,0 +1,37 @@
+{% if squirrel_list %}
+    <table border="1" cellspacing="0">
+        <thead>
+            <tr>
+                <th colspan=2 >Latitude </th>
+                <th colspan=2 >Longitude </th>
+                <th colspan=2 >Unique_Squirrel_ID </th>
+                <th colspan=2 >Shift </th>
+                <th colspan=2 >Date </th>
+                <th colspan=2 >Age </th>
+                <th colspan=2 >Primary_Fur_Color </th>
+                <th colspan=2 >Location </th>
+                <th colspan=2 >Specific_Location </th>
+            </tr>
+        </thead>
+        <tbody >
+        
+        {% for sightings in squirrel_list %}
+            <tr>
+                <td colspan=2 >{{ sightings.Latitude }}</td>
+                <td colspan=2 >{{ sightings.Longitude }}</td>
+                <td colspan=2 >
+			<a href="/sightings/{{ sightings.Unique_Squirrel_ID }}/">{{ sightings.Unique_Squirrel_ID }}(Edit)</a></td>
+                <td colspan=2 >{{ sightings.Shift }}</td>
+                <td colspan=2 >{{ sightings.Date }}</td>
+                <td colspan=2 >{{ sightings.Age }}</td>
+                <td colspan=2 >{{ sightings.Primary_Fur_Color }}</td>
+                <td colspan=2 >{{ sightings.Location }}</td>
+                <td colspan=2 >{{ sightings.Specific_Location }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    
+{% else %}
+    <p>No sightings in there.</p>
+{% endif %}
