@@ -6,4 +6,5 @@ Project Group 36, Section 2
 UNIs: [tt2756, bl2779]
 
 tt2756 is responsible for models.py, map, update, delete, stats
+
 bl2779 is responsible for import, export, add, sightings, html 
