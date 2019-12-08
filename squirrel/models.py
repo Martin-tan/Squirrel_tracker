@@ -49,27 +49,27 @@ class Squirrel(models.Model):
         max_length = 100, 
         default = ''
     )
-    Running = models.NullBooleanField(
+    Running = models.CharField(
         help_text = _('Running'),
         max_length = 100,
         default = ''
     )
-    Chasing = models.NullBooleanField(
+    Chasing = models.CharField(
         help_text = _('Chasing'),
         max_length = 100,
         default = ''
     )
-    Climbing = models.NullBooleanField(
+    Climbing = models.CharField(
         help_text = _('Climbing'),
         max_length = 100,
         default = ''
-    )
-    Eating = models.NullBooleanField(
+   )
+    Eating = models.CharField(
         help_text = _('Eating'),
         max_length = 100,
         default = ''
     )
-    Foraging = models.NullBooleanField(
+    Foraging = models.CharField(
         help_text = _('Foraging'),
         max_length = 100,
         default = ''
@@ -79,42 +79,42 @@ class Squirrel(models.Model):
         max_length = 100,
         default = ''
     )
-    Kuks = models.NullBooleanField(
+    Kuks = models.CharField(
         help_text = _('Kuks'),
         max_length = 100,
         default = ''
     )
-    Quaas = models.NullBooleanField(
+    Quaas = models.CharField(
         help_text = _('Quaas'),
         max_length = 100,
         default = ''
     )
-    Moans = models.NullBooleanField(
+    Moans = models.CharField(
         help_text = _('Moans'),
         max_length = 100,
         default = ''
     )
-    Tail_flags = models.NullBooleanField(
+    Tail_flags = models.CharField(
         help_text = _('Tail_flags'),
         max_length = 100,
         default = ''
     )
-    Tail_twitches = models.NullBooleanField(
+    Tail_twitches = models.CharField(
         help_text = _('Tail_twitches'),
         max_length = 100,
         default = ''
     )
-    Approaches = models.NullBooleanField(
+    Approaches = models.CharField(
         help_text = _('Approaches'),
         max_length = 100,
         default = ''
     )
-    Indifferent = models.NullBooleanField(
+    Indifferent = models.CharField(
         help_text = _('Indifferent'),
         max_length = 100,
         default = ''
     )
-    Runs_from = models.NullBooleanField(
+    Runs_from = models.CharField(
         help_text = _('Runs_from'),
         max_length = 100,
         default = ''

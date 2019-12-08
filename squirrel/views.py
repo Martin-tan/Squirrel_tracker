@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from .models import Squirrel
+import numpy as np
+
 
 def map(request):
     squirrels=Squirrel.objects.all()[:50]
@@ -48,4 +50,46 @@ def squirrel_details(request, squirrel_id):
         return render(request, 'squirrel/detail.html',{'squirrel':squirrel})
     except Squirrel.DoesNotExist:
         raise Http404("Squirrel does not exist")
+
+def squirrel_stats(request):
+    squirrel_list = Squirrel.objects.all()
+    running_rate_list = []
+    age = {}
+    fur_color = {}
+    for i in squirrel_list:
+        if i.Age!='':
+            age[i.Age] = age.get(i.Age,0) + 1
+        if i.Primary_Fur_Color!='':
+            fur_color[i.Primary_Fur_Color] = fur_color.get(i.Primary_Fur_Color,0) + 1
+        if i.Running == 'true':
+            running_rate_list.append(True)
+        elif i.Running == 'false':
+            running_rate_list.append(False)
+
+    mean_latitude = np.mean([float(i.Latitude) for i in squirrel_list if i.Latitude])
+    max_latitude = np.max([float(i.Latitude) for i in squirrel_list if i.Latitude])
+    min_latitude = np.min([float(i.Latitude) for i in squirrel_list if i.Latitude])
+    mean_longitude = np.mean([float(i.Longitude) for i in squirrel_list if i.Longitude])
+    max_longitude = np.max([float(i.Longitude) for i in squirrel_list if i.Longitude])
+    min_longitude = np.min([float(i.Longitude) for i in squirrel_list if i.Longitude])
+    running_rate = np.mean(running_rate_list)
+    age_mode = max(age,key=age.get)
+    age_count = age[age_mode]
+    color_mode = max(fur_color,key=fur_color.get)
+    color_count = fur_color[color_mode]
+
+    context = {
+            "Mean_Latitude": mean_latitude,
+            "Max_Latitude": max_latitude,
+            "Min_Latitude": min_latitude,
+            "Mean_Longitude": mean_longitude,
+            "Max_Longitude": max_longitude,
+            "Min_Longitude": min_longitude,
+            "Running_Rate": running_rate,
+            "age_mode": age_mode,
+            "age_count": age_count,
+            "color_mode": color_mode,
+            "color_count": color_count
+    }
+    return render(request, 'squirrel/stats.html',context)
 
