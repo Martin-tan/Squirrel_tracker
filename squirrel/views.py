@@ -128,11 +128,10 @@ def squirrel_stats(request):
             age[i.Age] = age.get(i.Age,0) + 1
         if i.Primary_Fur_Color!='':
             fur_color[i.Primary_Fur_Color] = fur_color.get(i.Primary_Fur_Color,0) + 1
-        if i.Running == 'True' or i.Running == 'true':
+        if i.Running == True:
             running_rate_list.append(True)
-        elif i.Running == 'False' or i.Running == 'false':
+        elif i.Running == False:
             running_rate_list.append(False)
-
     mean_latitude = np.mean([float(i.Latitude) for i in squirrel_list if i.Latitude])
     max_latitude = np.max([float(i.Latitude) for i in squirrel_list if i.Latitude])
     min_latitude = np.min([float(i.Latitude) for i in squirrel_list if i.Latitude])
