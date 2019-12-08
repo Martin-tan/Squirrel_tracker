@@ -5,8 +5,8 @@
     <title>Add Squirrels</title>
 </head>
 <body>
-    <h1>Add Squirrels:</h1>
-    <form  method="post">
+    <h2>Add Squirrels:</h2>
+    <form method="post" action="/sightings/">
         {% csrf_token %}
         Unique Squirrel ID: <input type="text" name="Unique_Squirrel_ID" /><br />
         Latitude: <input type="text" name="Latitude" /><br />
