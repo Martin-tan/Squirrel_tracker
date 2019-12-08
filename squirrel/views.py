@@ -13,7 +13,7 @@ def map(request):
     return render(request, 'squirrel/map.html', context)
 
 def all_squirrels(request):
-    squirrel_list = Squirrel.objects.all()[::-1][:5]
+    squirrel_list = Squirrel.objects.all()
     context = {'squirrel_list': squirrel_list}
     return render(request, 'squirrel/index.html', context)
 
@@ -26,36 +26,39 @@ def squirrel_details(request, squirrel_id):
             squirrel.delete()
             return redirect('/sightings/')
         if update == 'update':
-            squirrel.Latitude = request.POST.get('Latitude')
-            squirrel.Longitude = request.POST.get('Longitude')
             id = request.POST.get('Unique_Squirrel_ID')
+            print(id)
             if id in [i.Unique_Squirrel_ID for i in Squirrel.objects.all()]:
                 raise Http404("UNIQUE ID CONSTRAINT failed!")
             else:
+                squirrel.Latitude = request.POST.get('Latitude')
+                squirrel.Longitude = request.POST.get('Longitude')
                 squirrel.Unique_Squirrel_ID = id
-            squirrel.Shift = request.POST.get('Shift')
-            squirrel.Date = request.POST.get('Date')
-            squirrel.Age = request.POST.get('Age')
-            squirrel.Primary_Fur_Color = request.POST.get('Primary_Fur_Color')
-            squirrel.Location = request.POST.get('Location')
-            squirrel.Specific_Location = request.POST.get('Specific_Location')
-            squirrel.Running = request.POST.get('Running')
-            squirrel.Chasing = request.POST.get('Chasing')
-            squirrel.Unique_Squirrel_ID = request.POST.get('Unique_Squirrel_ID')
-            squirrel.Climbing = request.POST.get('Climbing')
-            squirrel.Eating = request.POST.get('Eating')
-            squirrel.Foraging = request.POST.get('Foraging')
-            squirrel.Other_Activities = request.POST.get('Other_Activities')
-            squirrel.Kuks = request.POST.get('Kuks')
-            squirrel.Quaas = request.POST.get('Quaas')
-            squirrel.Moans = request.POST.get('Moans')
-            squirrel.Tail_flags = request.POST.get('Tail_flags')
-            squirrel.Tail_twitches = request.POST.get('Tail_twitches')
-            squirrel.Approaches = request.POST.get('Approaches')
-            squirrel.Indifferent = request.POST.get('Indifferent')
-            squirrel.Runs_from = request.POST.get('Runs_from')
-            squirrel.save()
-            return redirect('/sightings/')
+                print(id,squirrel.Unique_Squirrel_ID)
+                squirrel.Shift = request.POST.get('Shift')
+                squirrel.Date = request.POST.get('Date')
+                squirrel.Age = request.POST.get('Age')
+                squirrel.Primary_Fur_Color = request.POST.get('Primary_Fur_Color')
+                squirrel.Location = request.POST.get('Location')
+                squirrel.Specific_Location = request.POST.get('Specific_Location')
+                squirrel.Running = request.POST.get('Running')
+                squirrel.Chasing = request.POST.get('Chasing')
+                squirrel.Unique_Squirrel_ID = request.POST.get('Unique_Squirrel_ID')
+                squirrel.Climbing = request.POST.get('Climbing')
+                squirrel.Eating = request.POST.get('Eating')
+                squirrel.Foraging = request.POST.get('Foraging')
+                squirrel.Other_Activities = request.POST.get('Other_Activities')
+                squirrel.Kuks = request.POST.get('Kuks')
+                squirrel.Quaas = request.POST.get('Quaas')
+                squirrel.Moans = request.POST.get('Moans')
+                squirrel.Tail_flags = request.POST.get('Tail_flags')
+                squirrel.Tail_twitches = request.POST.get('Tail_twitches')
+                squirrel.Approaches = request.POST.get('Approaches')
+                squirrel.Indifferent = request.POST.get('Indifferent')
+                squirrel.Runs_from = request.POST.get('Runs_from')
+                squirrel.save()
+                Squirrel.objects.get(Unique_Squirrel_ID=squirrel_id).delete()
+                return redirect('/sightings/')
         return render(request, 'squirrel/detail.html',{'squirrel':squirrel})
     except Squirrel.DoesNotExist:
         raise Http404("Squirrel does not exist")
@@ -112,6 +115,7 @@ def add_squirrels(request):
             Indifferent = indifferent,
             Runs_from = runs_from
         )
+        return redirect('/sightings/')
     return render(request, 'squirrel/add.html')
 
 def squirrel_stats(request):
