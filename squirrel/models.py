@@ -5,12 +5,14 @@ class Squirrel(models.Model):
     def __str__(self):
         return str(self.Unique_Squirrel_ID)
 
-    Latitude = models.FloatField(
+    Latitude = models.CharField(
         help_text = _('Latitude'),
+        max_length = 100,
         default = ''
     ) 
-    Longitude = models.FloatField( 
+    Longitude = models.CharField( 
         help_text = _('Longitude'),
+        max_length = 100,
         default = ''
     ) 
     Unique_Squirrel_ID = models.CharField( 
